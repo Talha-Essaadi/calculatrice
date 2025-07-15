@@ -57,7 +57,7 @@ function handlThemeThree() {
 
 
     });
-
+    outputSectionText.style.color ="var(--white)";
     containerBackground.style.backgroundColor = "var(--Background-color)";
     calculatorBody.style.backgroundColor = "var(--buttons-background)";
 
@@ -282,51 +282,51 @@ function handlCalculatorClick(e) {
 
 
     if (index <= 9) {
-        outputSection.textContent += button.textContent;
+        outputSectionText.textContent += button.textContent;
     }
     else if (index == 11) {
-        outputSection.textContent = "";
+        outputSectionText.textContent = "";
     }
     else if (index == 10) {
-        outputSection.textContent = outputSection.textContent.slice(0, -1);
+        outputSectionText.textContent = outputSectionText.textContent.slice(0, -1);
 
 
     }
     else if (index == 17) {
-        if (outputSection.textContent === "") {
-            outputSection.textContent = "0.";
+        if (outputSectionText.textContent === "") {
+            outputSectionText.textContent = "0.";
             return;
         }
-        else if (outputSection.textContent.includes(".")) {
+        else if (outputSectionText.textContent.includes(".")) {
             return;
         }
 
-        outputSection.textContent += button.textContent;
+        outputSectionText.textContent += button.textContent;
 
 
     }
     else if (index >= 13 && index <= 16) {
         sign_icon = button.textContent;
-        if (outputSection.textContent != "") {
-            number_1 = outputSection.textContent;
+        if (outputSectionText.textContent != "") {
+            number_1 = outputSectionText.textContent;
 
         }
-        outputSection.textContent += sign_icon;
+        outputSectionText.textContent += sign_icon;
 
 
     }
 
     else if (index == 12) {
-        let oldString = outputSection.textContent;
+        let oldString = outputSectionText.textContent;
         // alert(oldString);
         // alert(oldString[0]);
         let string;
-        if (outputSection.textContent === "" || outputSection.textContent === "Input is empty") {
-            outputSection.textContent = "Input is empty";
+        if (outputSectionText.textContent === "" || outputSectionText.textContent === "Input is empty") {
+            outputSectionText.textContent = "Input is empty";
             return;
         }
         if (oldString[0] === "x" || oldString[0] === "/") {
-            outputSection.textContent = "Syntax Error";
+            outputSectionText.textContent = "Syntax Error";
             return;
         }
         else if (oldString[0] === "+" || oldString[0] === "-") {
@@ -360,7 +360,7 @@ function handlCalculatorClick(e) {
 
                 if (numbers[1] === 0) {
 
-                    outputSection.textContent = "Unknown Error: null";
+                    outputSectionText.textContent = "Unknown Error: null";
                     return;
                 }
                 else {
@@ -369,7 +369,7 @@ function handlCalculatorClick(e) {
                 break;
 
         }
-        outputSection.textContent = result;
+        outputSectionText.textContent = result;
         return;
 
 
