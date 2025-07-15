@@ -4,8 +4,14 @@
     --Background-color: #3B4664;
     --output-section: #181F32;
     --buttons-color: #EAE3DB;
+    --buttons-border-bottom-color :#B2A295;
+    --hover-buttons-color:white;
     --equal-button: #D13F30;
+    --equal-button-order-bottom-color:#96271C;
+    --hover-equal-button: #F96C5B;
     --reset-button: #647299;
+    --reset-button-border-bottom-color:#424E74;
+    --hover-reset-button: #A2B3E1;
     --buttons-background: #252C46;
     --white: white;
 
@@ -45,19 +51,22 @@ body {
 header {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     height: 70px;
 }
 
 .switch-theme-button-design {
 
     width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(2 , 1fr);
 
 
+}
+.theme-numbers {
+    display: grid;
+    grid-template-columns: repeat(3 , 1fr);
+    grid-column: 1 / 3;
 }
 
 
@@ -73,14 +82,27 @@ header {
     font-size: 0.7rem;
 }
 
-.swith-button {
+.switch-button {
     background-color: var(--buttons-background);
     width: 35px;
     height: 13px;
     border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
 
 }
+.switch-button-circle {
+    width:13px;
+    height:13px;
+    background-color: var(--equal-button);
+    border-radius: 50%;
+}
 
+.theme-number {
+    color:var(--white);
+    font-size: 1em;
+}
 .output-section {
     width: 100%;
     height: 100px;
@@ -99,6 +121,25 @@ header {
     margin-right: 20px;
     font-size: 40px;
     font-weight: 800;
+    overflow-x: scroll;
+ 
+    
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.output-section-text::-webkit-scrollbar {
+  height: 6px;
+  
+}
+
+.output-section-text::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.output-section-text::-webkit-scrollbar-thumb {
+  background-color: var(--equal-button);
+  border-radius: 10px;
 }
 
 .calculator-body {
@@ -126,38 +167,45 @@ header {
     font-size: 1.3em;
     color: var(--buttons-background);
 
-    border: 2px solid #B2A295;
+    border: 2px solid var(--buttons-border-bottom-color);
     border-top: 0;
     border-left: 0;
     border-right: 0;
+    cursor: pointer;
 }
 
-
+.button-1:hover {
+    background-color: var(--hover-buttons-color);
+}
 .reset-button {
     grid-column: 1 / 3;
     background-color: var(--reset-button);
     color: var(--white);
-    border: 2px solid #424E74;
+    border: 2px solid var(--reset-button-border-bottom-color);
     border-top: 0;
     border-left: 0;
     border-right: 0;
 }
-
+.reset-button:hover , .del-button:hover {
+    background-color: var(--hover-reset-button);
+}
 .equal-button {
     grid-column: 3 / 5;
     background-color: var(--equal-button);
     color: var(--white);
-    border: 2px solid #96271C;
+    border: 2px solid var(--equal-button-order-bottom-color);
     border-top: 0;
     border-left: 0;
     border-right: 0;
 }
-
+.equal-button:hover {
+    background-color: var(--hover-equal-button);
+}
 .del-button {
     background-color: var(--reset-button);
     color: var(--white);
 
-    border: 2px solid #424E74;
+    border: 2px solid var(--reset-button-border-bottom-color);
     border-top: 0;
     border-left: 0;
     border-right: 0;
